@@ -81,11 +81,13 @@ public class RegisterHandler {
 
         /**
          * 构建代理
+         * TODO 这里需要增加代理模式
          */
         Object o = clazzs.newInstance();
 
         /**
          * di注入
+         * TODO 这里需要增加对循环依赖的判断
          */
         Field[] declaredFields = clazzs.getDeclaredFields();
         if (null != declaredFields) {
