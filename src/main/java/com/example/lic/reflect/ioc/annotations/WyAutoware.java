@@ -6,7 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 自动装备
+ * 自动装配
+ * TODO 后期需要增加按照类型或按照名称注入
  *
  * @author wy
  * @date 2020/6/17 17:41

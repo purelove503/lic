@@ -1,6 +1,7 @@
 package com.example.lic.reflect.ioc;
 
 import com.example.lic.reflect.ioc.annotations.WyAutoware;
+import com.example.lic.reflect.ioc.dynamic_proxy.ExecuteDynamicProxy;
 import org.springframework.util.CollectionUtils;
 
 import java.lang.annotation.Annotation;
@@ -84,6 +85,7 @@ public class RegisterHandler {
          * TODO 这里需要增加代理模式
          */
         Object o = clazzs.newInstance();
+        o = ExecuteDynamicProxy.getProxy(o);
 
         /**
          * di注入
