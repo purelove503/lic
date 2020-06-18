@@ -32,7 +32,7 @@ public class RegisterHandler {
      * @date 2020/6/17 17:36
      * @return:
      */
-    public void register(Map<String, Object> result, List<Class<?>> clazzs) throws InstantiationException, IllegalAccessException {
+    public void register(Map<String, Object> result, List<Class<?>> clazzs) throws Exception {
         if (CollectionUtils.isEmpty(clazzs)) {
             return;
         }
@@ -51,7 +51,7 @@ public class RegisterHandler {
      * @date 2020/6/17 17:38
      * @return:
      */
-    private void register(Map<String, Object> result, Class<?> clazzs) throws IllegalAccessException, InstantiationException {
+    private void register(Map<String, Object> result, Class<?> clazzs) throws Exception {
 
         /**
          * 判断注解
@@ -101,7 +101,7 @@ public class RegisterHandler {
         result.put(clazzs.getName(), o);
     }
 
-    public void di(Object o, Field field, Map<String, Object> result) throws InstantiationException, IllegalAccessException {
+    public void di(Object o, Field field, Map<String, Object> result) throws Exception {
         WyAutoware annotation = field.getAnnotation(WyAutoware.class);
         if (annotation != null) {
             String className = field.getType().getName();

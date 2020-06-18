@@ -1,6 +1,7 @@
 package com.example.lic.reflect.ioc;
 
 import com.example.lic.reflect.ioc.annotations.WyComponent;
+import com.example.lic.reflect.ioc.service.LoginService;
 import org.junit.Test;
 import org.testng.collections.Lists;
 
@@ -18,7 +19,7 @@ public class IocMain {
     public static final Map<String, Object> iocMap = new HashMap<>();
 
     @Test
-    public void test() throws IllegalAccessException, InstantiationException {
+    public void test() throws Exception {
         ScanningFile scanningFile = new ScanningFile();
         List<Class<?>> aClass = scanningFile.getClass("com.example.lic.reflect.ioc");
 
@@ -27,6 +28,7 @@ public class IocMain {
         RegisterHandler registerHandler = new RegisterHandler(objects);
         registerHandler.register(iocMap, aClass);
 
+        ((LoginService) iocMap.get(LoginService.class.getName())).login();
         System.out.println("初始化容器完毕");
     }
 }
