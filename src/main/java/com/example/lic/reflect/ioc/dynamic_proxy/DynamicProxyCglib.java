@@ -46,11 +46,16 @@ public class DynamicProxyCglib extends InterceptorHandler implements MethodInter
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         log.info("aop");
 
+
         /**
-         * TODO 这里需要责任链的形式处理拦截器
+         * TODO 这里需要责任链的形式处理前置拦截器
          */
 
         Object result = methodProxy.invokeSuper(o, objects);
+
+        /**
+         * TODO 这里需要责任链的形式处理后置拦截器
+         */
         return result;
     }
 }
