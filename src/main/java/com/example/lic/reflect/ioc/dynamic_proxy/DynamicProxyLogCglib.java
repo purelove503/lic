@@ -13,6 +13,11 @@ import java.lang.reflect.Method;
 @Slf4j
 public class DynamicProxyLogCglib extends DynamicProxyLog implements DynamicProxyCglibHandler {
 
+    /**
+     * 责任链形式
+     */
+    public DynamicProxyCglibHandler dynamicProxyCglibHandler;
+
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         super.pringInParameter(method, args, obj);
